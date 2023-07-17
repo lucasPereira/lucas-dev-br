@@ -1,0 +1,55 @@
+@charset "utf-8";
+
+body, h1, a, img, header, section, div {
+	margin: 0;
+	padding: 0;
+}
+
+h1,
+a {
+	color: #222;
+	font-family: sans-serif;
+}
+
+header,
+section,
+body {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+body {
+	background-color: #F5F5F5;
+}
+
+header > img {
+	border-radius: 100%;
+	margin: 0.5rem 0;
+	width: 100px;
+}
+
+header > h1 {
+	font-weight: lighter;
+	margin-bottom: 1.5rem;
+}
+
+section > div {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	margin: 1rem 0;
+}
+
+section > div > img {
+	margin-right: 0.5rem;
+	width: 1.5rem;
+}
+
+section > div > a {
+	text-decoration: none;
+}
+
+section > div > a:hover {
+	text-decoration: underline;
+}
