@@ -26,10 +26,11 @@ body {
 header > img {
 	border-radius: 100%;
 	margin: 0.5rem 0;
-	width: 100px;
+	width: 200px;
 }
 
 header > h1 {
+	font-size: 3rem;
 	font-weight: lighter;
 	margin-bottom: 1.5rem;
 }
@@ -47,6 +48,7 @@ section > div > img {
 }
 
 section > div > a {
+	font-size: 1rem;
 	text-decoration: none;
 }
 
