@@ -73,7 +73,7 @@ const TournamentSetup: React.FC<Props> = ({ onStart }) => {
               </span>
               <button 
                 onClick={() => removeParticipant(i)}
-                className="text-emerald-200/40 hover:text-red-400 transition-colors font-bungee text-sm opacity-0 group-hover:opacity-100"
+                className="text-red-400/60 hover:text-red-400 transition-colors font-bungee text-xs px-3 py-1 bg-red-900/20 rounded-xl"
               >
                 REMOVER
               </button>

@@ -42,12 +42,12 @@ const App: React.FC = () => {
     }));
 
     const firstRoundGroups = createGroups(participants);
-    const isFinal = participants.length <= 4;
+    const isNextFinal = participants.length <= 4;
 
     const firstRound: Round = {
       number: 1,
       groups: firstRoundGroups,
-      isFinal,
+      isFinal: isNextFinal,
       completed: false
     };
 
@@ -116,25 +116,21 @@ const App: React.FC = () => {
     setState(prev => ({ ...prev, viewingRoundIndex: index }));
   };
 
-  const resetTournament = useCallback((ask: boolean = true) => {
-    if (ask) {
-      const confirmed = window.confirm("Tem certeza que quer zerar a brisa? Todo o progresso será perdido. 🌿");
-      if (!confirmed) return;
+  const resetTournament = useCallback(() => {
+    if (window.confirm("Deseja mesmo zerar tudo e começar um novo GP? 🌿")) {
+      localStorage.clear();
+      window.location.reload();
     }
-    
-    // Limpa o localStorage e reseta o estado
-    localStorage.removeItem(STORAGE_KEY);
-    setState(INITIAL_STATE);
   }, []);
 
   return (
     <div className="min-h-screen pb-12 transition-colors duration-500">
-      {/* Decorative floating leaves - pointer-events-none is CRITICAL */}
-      <CannabisLeaf className="floating-flower text-emerald-400 w-32 h-32 top-10 left-10 pointer-events-none" />
-      <CannabisLeaf className="floating-flower text-emerald-400 w-24 h-24 bottom-20 right-20 pointer-events-none" style={{ animationDelay: '-5s' } as any} />
-      <CannabisLeaf className="floating-flower text-emerald-400 w-40 h-40 top-1/2 left-[-40px] pointer-events-none" style={{ animationDelay: '-10s' } as any} />
+      {/* Decorative floating leaves - pointer-events-none para não atrapalhar cliques */}
+      <CannabisLeaf className="floating-flower text-emerald-400 w-32 h-32 top-10 left-10 pointer-events-none z-0" />
+      <CannabisLeaf className="floating-flower text-emerald-400 w-24 h-24 bottom-20 right-20 pointer-events-none z-0" style={{ animationDelay: '-5s' } as any} />
+      <CannabisLeaf className="floating-flower text-emerald-400 w-40 h-40 top-1/2 left-[-40px] pointer-events-none z-0" style={{ animationDelay: '-10s' } as any} />
 
-      <header className="py-12 px-4 text-center cannabis-gradient shadow-xl mb-8 relative overflow-hidden border-b-8 border-yellow-400">
+      <header className="py-12 px-4 text-center cannabis-gradient shadow-xl mb-8 relative overflow-hidden border-b-8 border-yellow-400 z-10">
         <div className="absolute top-0 left-0 w-full h-full opacity-10 pointer-events-none flex flex-wrap gap-12 p-8 items-center justify-center">
           {Array.from({length: 12}).map((_, i) => (
             <CannabisLeaf key={i} className="w-16 h-16" />
@@ -171,12 +167,12 @@ const App: React.FC = () => {
           <FinalResults 
             winner={state.winner} 
             rounds={state.rounds} 
-            onReset={() => resetTournament(false)} 
+            onReset={resetTournament} 
           />
         )}
       </main>
 
-      <footer className="mt-16 text-center text-emerald-300/60 font-bold text-sm flex flex-col items-center gap-4 pointer-events-none">
+      <footer className="mt-16 text-center text-emerald-300/60 font-bold text-sm flex flex-col items-center gap-4 pointer-events-none z-0">
         <CannabisLeaf className="w-10 h-10 opacity-30" />
         <p className="tracking-widest uppercase">Joga com calma, aproveita a brisa. 🌈✨</p>
       </footer>

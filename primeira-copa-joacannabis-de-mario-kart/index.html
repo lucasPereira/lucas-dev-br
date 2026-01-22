@@ -10,7 +10,7 @@
     <style>
         body {
             font-family: 'Inter', sans-serif;
-            background-color: #064e3b; /* Slightly lighter emerald-900 */
+            background-color: #064e3b;
             background-image: radial-gradient(circle at center, #065f46 0%, #064e3b 100%);
             color: #ffffff;
             overflow-x: hidden;
@@ -41,14 +41,6 @@
         ::-webkit-scrollbar-track { background: #064e3b; }
         ::-webkit-scrollbar-thumb { background: #10b981; border-radius: 5px; border: 2px solid #064e3b; }
         
-        .flower-path, .leaf-path {
-            fill: #34d399;
-            transition: fill 0.3s;
-        }
-        .flower-icon:hover .flower-path, .leaf-icon:hover .leaf-path {
-            fill: #6ee7b7;
-        }
-
         .no-scrollbar::-webkit-scrollbar {
             display: none;
         }
@@ -60,9 +52,11 @@
 <script type="importmap">
 {
   "imports": {
-    "react": "https://esm.sh/react@^19.2.3",
-    "react/": "https://esm.sh/react@^19.2.3/",
-    "react-dom/": "https://esm.sh/react-dom@^19.2.3/"
+    "react": "https://esm.sh/react@19.0.0",
+    "react-dom": "https://esm.sh/react-dom@19.0.0",
+    "react-dom/client": "https://esm.sh/react-dom@19.0.0/client",
+    "react-dom/": "https://esm.sh/react-dom@^19.2.3/",
+    "react/": "https://esm.sh/react@^19.2.3/"
   }
 }
 </script>
@@ -70,6 +64,8 @@
 </head>
 <body>
     <div id="root"></div>
+    <!-- O navegador tentará carregar o index.tsx. Nota: Isso só funcionará se houver um compilador no servidor ou se usar um ambiente de dev como o Vite. -->
+    <script type="module" src="index.tsx"></script>
 <script type="module" src="/index.tsx"></script>
 </body>
 </html>
