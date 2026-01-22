@@ -25,7 +25,7 @@
         .floating-flower {
             position: fixed;
             pointer-events: none;
-            z-index: -1;
+            z-index: 0;
             opacity: 0.1;
             animation: float 25s infinite linear;
         }
@@ -54,18 +54,17 @@
 <script type="importmap">
 {
   "imports": {
-    "react": "https://esm.sh/react@19.0.0",
-    "react-dom": "https://esm.sh/react-dom@19.0.0",
-    "react-dom/client": "https://esm.sh/react-dom@19.0.0/client",
+    "react": "https://esm.sh/react@^19.2.3",
     "react-dom/": "https://esm.sh/react-dom@^19.2.3/",
-    "react/": "https://esm.sh/react@^19.2.3/"
+    "react/": "https://esm.sh/react@^19.2.3/",
+    "vite": "https://esm.sh/vite@^7.3.1",
+    "@vitejs/plugin-react": "https://esm.sh/@vitejs/plugin-react@^5.1.2"
   }
 }
 </script>
-  <script type="module" crossorigin src="/assets/index-MWi37pTB.js"></script>
+  <script type="module" crossorigin src="./assets/index-MWi37pTB.js"></script>
 </head>
 <body>
     <div id="root"></div>
-    <!-- O navegador tentará carregar o index.tsx. Nota: Isso só funcionará se houver um compilador no servidor ou se usar um ambiente de dev como o Vite. -->
 </body>
 </html>
